@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.lang.System;
 /**
  * Write a description of class PhotoPost here.
  * 
@@ -24,7 +25,7 @@ public class PhotoPost
         username = author;
         this.filename = filename;
         this.caption = caption;
-        timestamp = 0;
+        timestamp = System.currentTimeMillis();
         likes = 0;
         comments = new ArrayList<>();
     }
@@ -84,7 +85,7 @@ public class PhotoPost
         System.out.println("Autor: " + username);
         System.out.println("Nombre de la foto: " + filename);
         System.out.println("Descripcion " + caption);
-        System.out.println("Hace " + timestamp + " milisegundos");
+        System.out.println("Hace " + (System.currentTimeMillis() - timestamp) + " milisegundos");
         System.out.println(likes + " likes");
         System.out.println("Comentarios");
         for(String comentario: comments){

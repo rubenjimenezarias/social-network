@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.lang.System;
 /**
  * Write a description of class MessagePost here.
  * 
@@ -22,7 +23,7 @@ public class MessagePost
         // initialise instance variables
         username = author;
         message = text;
-        timestamp = 0;
+        timestamp = System.currentTimeMillis();
         likes = 0;
         comments = new ArrayList<>();
     }
@@ -74,7 +75,7 @@ public class MessagePost
         System.out.println("-----------------------------------------------");
         System.out.println("Autor: " + username);
         System.out.println("Mensaje: " + message);
-        System.out.println("Hace " + timestamp + " milisegundos");
+        System.out.println("Hace " + (System.currentTimeMillis()- timestamp) + " milisegundos");
         System.out.println(likes + " likes");
         System.out.println("Comentarios");
         for(String comentario: comments){

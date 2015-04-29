@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.lang.System;
 /**
  * Write a description of class NewsFeed here.
  * 
