@@ -75,12 +75,19 @@ public class MessagePost
         System.out.println("-----------------------------------------------");
         System.out.println("Autor: " + username);
         System.out.println("Mensaje: " + message);
-        System.out.println("Hace " + (System.currentTimeMillis()- timestamp) + " milisegundos");
+        System.out.println(timeString(System.currentTimeMillis()));
         System.out.println(likes + " likes");
-        System.out.println("Comentarios");
-        for(String comentario: comments){
-            System.out.println("comment-- "+ comentario);
+        
+        if(comments.size() == 0){
+            System.out.println("No hay comentarios");
         }
+        else{
+            System.out.println("Comentarios");
+            for(String comentario: comments){
+                System.out.println("comment-- "+ comentario);
+            }
+        }
+        
         System.out.println("-----------------------------------------------");
     }
     
@@ -88,7 +95,7 @@ public class MessagePost
      * Devuelve el tiempo en string
      */
     private String timeString(long time){
-        return "El tiempo es " + timestamp + " milisegundos";
+        return "Hace " + ((time - timestamp)/1000)/60 + " minutos " + ((time - timestamp)/1000)%60 + " segundos";
     }
     
 }
