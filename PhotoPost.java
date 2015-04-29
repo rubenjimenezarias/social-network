@@ -1,27 +1,29 @@
 import java.util.ArrayList;
 /**
- * Write a description of class MessagePost here.
+ * Write a description of class PhotoPost here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MessagePost
+public class PhotoPost
 {
     // instance variables - replace the example below with your own
     private String username;
-    private String message;
+    private String filename;
+    private String caption;
     private long timestamp;
     private int likes;
     private ArrayList<String> comments;
 
     /**
-     * Constructor for objects of class MessagePost
+     * Constructor for objects of class PhotoPost
      */
-    public MessagePost(String author, String text)
+    public PhotoPost(String author, String filename, String caption)
     {
         // initialise instance variables
         username = author;
-        message = text;
+        this.filename = filename;
+        this.caption = caption;
         timestamp = 0;
         likes = 0;
         comments = new ArrayList<>();
@@ -54,25 +56,33 @@ public class MessagePost
     }
     
     /**
-     * devolvemos texto
+     * Devolvemos el nombre de la imagen
      */
-    public String getText(){
-        return message;
+    public String getImageFile(){
+        return filename;
     }
     
     /**
-     * devolvemos el tiempo
+     * Devolvemos la descripcion de la imagen
+     */
+    public String getCaption(){
+        return caption;
+    }
+    
+    /**
+     * Devolvemos el tiempo de la imagen
      */
     public long getTimeStamp(){
         return timestamp;
     }
     
     /**
-     * Resumen por pantalla del mensaje
+     * Resumen por pantalla de la imagen
      */
     public void display(){
         System.out.println("Autor: " + username);
-        System.out.println("Mensaje: " + message);
+        System.out.println("Nombre de la foto: " + filename);
+        System.out.println("Descripcion " + caption);
         System.out.println("Hace " + timestamp + " milisegundos");
         System.out.println(likes + " likes");
         System.out.println("Comentarios");
@@ -87,5 +97,4 @@ public class MessagePost
     private String timeString(long time){
         return "El tiempo es " + timestamp + " milisegundos";
     }
-    
 }
