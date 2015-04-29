@@ -80,6 +80,7 @@ public class PhotoPost
      * Resumen por pantalla de la imagen
      */
     public void display(){
+        System.out.println("-----------------------------------------------");
         System.out.println("Autor: " + username);
         System.out.println("Nombre de la foto: " + filename);
         System.out.println("Descripcion " + caption);
@@ -87,8 +88,9 @@ public class PhotoPost
         System.out.println(likes + " likes");
         System.out.println("Comentarios");
         for(String comentario: comments){
-            System.out.println(comentario);
+            System.out.println("comment-- " + comentario);
         }
+        System.out.println("-----------------------------------------------");
     }
     
     /**

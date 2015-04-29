@@ -71,14 +71,16 @@ public class MessagePost
      * Resumen por pantalla del mensaje
      */
     public void display(){
+        System.out.println("-----------------------------------------------");
         System.out.println("Autor: " + username);
         System.out.println("Mensaje: " + message);
         System.out.println("Hace " + timestamp + " milisegundos");
         System.out.println(likes + " likes");
         System.out.println("Comentarios");
         for(String comentario: comments){
-            System.out.println(comentario);
+            System.out.println("comment-- "+ comentario);
         }
+        System.out.println("-----------------------------------------------");
     }
     
     /**
