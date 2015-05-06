@@ -24,6 +24,7 @@ public class NewsFeed
 
     /**
      * Añadimos mensaje al tablon
+     * @param message un objeto MessagePost a añadir al muro
      */
     public void addMessagePost(MessagePost message)
     {
@@ -32,6 +33,8 @@ public class NewsFeed
     
     /**
      * Añadimos foto al tablon
+     * 
+     * @param message un objeto PhotoPost a añadir al muro
      */
     public void addPhotoPost(PhotoPost photo)
     {

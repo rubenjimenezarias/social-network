@@ -1,19 +1,14 @@
-import java.util.ArrayList;
-import java.lang.System;
+
 /**
  * Write a description of class MessagePost here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MessagePost
+public class MessagePost extends Post
 {
     // instance variables - replace the example below with your own
-    private String username;
     private String message;
-    private long timestamp;
-    private int likes;
-    private ArrayList<String> comments;
 
     /**
      * Constructor for objects of class MessagePost
@@ -21,51 +16,17 @@ public class MessagePost
     public MessagePost(String author, String text)
     {
         // initialise instance variables
-        username = author;
+        super(author);
         message = text;
-        timestamp = System.currentTimeMillis();
-        likes = 0;
-        comments = new ArrayList<>();
+        
+        
     }
 
     /**
-     * sumamos un like
-     */
-    public void like()
-    {
-        likes++;
-    }
-    
-    /**
-     * restamos un like
-     */
-    public void unlike()
-    {
-        if (likes > 0){
-            likes--;
-        }
-    }
-    
-    /**
-     * añadimos comentario
-     * @param texto del comentario
-     */
-    public void addComment(String text){
-        comments.add(text);
-    }
-    
-    /**
-     * devolvemos texto
+     * devolvemos texto del MessagePost
      */
     public String getText(){
         return message;
-    }
-    
-    /**
-     * devolvemos el tiempo
-     */
-    public long getTimeStamp(){
-        return timestamp;
     }
     
     /**
@@ -73,29 +34,31 @@ public class MessagePost
      */
     public void display(){
         System.out.println("-----------------------------------------------");
-        System.out.println("Autor: " + username);
-        System.out.println("Mensaje: " + message);
-        System.out.println(timeString(System.currentTimeMillis()));
-        System.out.println(likes + " likes");
+        System.out.println("Autor: " + getUsername());
         
-        if(comments.size() == 0){
-            System.out.println("No hay comentarios");
+        System.out.println("Mensaje : " + message);
+        
+        System.out.println(timeString(System.currentTimeMillis()));
+        System.out.println(getLikes() + " likes");
+        
+        if(getComments().size() == 0){
+            System.out.println("*****No hay comentarios*****");
         }
         else{
-            System.out.println("Comentarios");
-            for(String comentario: comments){
+            System.out.println("*****Comentarios*****");
+            for(String comentario: getComments()){
                 System.out.println("comment-- "+ comentario);
             }
+            System.out.println("*********************");
         }
         
         System.out.println("-----------------------------------------------");
     }
     
     /**
-     * Devuelve el tiempo en string
+     * Muestra una frase
      */
-    private String timeString(long time){
-        return "Hace " + ((time - timestamp)/1000)/60 + " minutos " + ((time - timestamp)/1000)%60 + " segundos";
+    public void printShortSummary(){
+        System.out.println("Esto es un post de texto creado por " + getUsername() + ".");
     }
-    
 }
